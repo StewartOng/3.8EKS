@@ -1,0 +1,9 @@
+# 2. ConfigMap – Storing non-sensitive configuration data
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+data:
+  DB_HOST: localhost
+  DB_PORT: "5432"
+  FEATURE_FLAG: "true"

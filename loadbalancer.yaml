@@ -1,0 +1,13 @@
+# Kubernetes Services expose your Pods to other services or the internet. The three main types are:
+# c. LoadBalancer – Used in cloud environments (like AWS, GCP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-loadbalancer-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer

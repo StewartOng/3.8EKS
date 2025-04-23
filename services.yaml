@@ -1,0 +1,41 @@
+# Kubernetes Services expose your Pods to other services or the internet. The three main types are:
+
+# a. ClusterIP (default) – Internal communication
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-clusterip-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: ClusterIP
+
+# b. NodePort – Exposes the service on a port on each Node
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nodeport-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30036
+  type: NodePort
+
+# c. LoadBalancer – Used in cloud environments (like AWS, GCP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-loadbalancer-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer

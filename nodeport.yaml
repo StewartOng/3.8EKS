@@ -1,0 +1,15 @@
+# Kubernetes Services expose your Pods to other services or the internet. The three main types are:
+# b. NodePort – Exposes the service on a port on each Node
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nodeport-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30036
+  type: NodePort
